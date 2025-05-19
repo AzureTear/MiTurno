@@ -45,15 +45,6 @@ public class SucursalController {
         return ResponseEntity.ok(sucursal);
     }
 
-    @GetMapping("/{capacidad}")    
-    public ResponseEntity<Sucursal> buscarCapacidad(@PathVariable Integer capacidad_maxima) {
-        Sucursal sucursal = sucursalService.findByCapacidad(capacidad_maxima);
-        if (sucursal == null) {
-            return ResponseEntity.notFound().build();   
-        }
-        return ResponseEntity.ok(sucursal);
-    }
-
     @GetMapping("/resumen")
     public ResponseEntity<List<Map<String, Object>>> resumen() {
         List<Map<String, Object>> resumen = sucursalService.obtenerSucursalConConfigYInsti();
